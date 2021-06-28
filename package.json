@@ -1,0 +1,27 @@
+{
+  "name": "release-note-action",
+  "version": "1.0.0",
+  "description": "Release-notes section like the Kubernetes Prow plugin",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "ncc build src/index.js",
+    "format": "prettier --write src/*.js",
+    "format-check": "prettier --check src/*.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "github-action",
+    "release-notes"
+  ],
+  "author": "Richard Case",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.28.6",
+    "jest": "^27.0.5",
+    "prettier": "^2.3.2"
+  }
+}

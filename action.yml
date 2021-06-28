@@ -1,0 +1,9 @@
+name: 'Release Notes'
+author: 'Richard Case'
+description: 'Release-notes section like the Kubernetes Prow plugin'
+inputs: 
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
