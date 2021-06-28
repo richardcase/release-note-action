@@ -1,9 +1,10 @@
-const core = require('@actions/core');
 const github = require('@actions/github');
+const core = require('@actions/core');
 
 async function run() {
     try {
-        const client = new github.GitHub(process.env.GITHUB_TOKEN)
+        //const token  = core.getInput('repo-token');
+        //const client = new github.GitHub(process.env.GITHUB_TOKEN)
         const contextPullRequest = github.context.payload.pull_request;
         if (!contextPullRequest) {
             throw new Error(
