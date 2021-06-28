@@ -4,7 +4,7 @@
   "description": "Release-notes section like the Kubernetes Prow plugin",
   "main": "src/index.js",
   "scripts": {
-    "build": "ncc build src/index.js",
+    "build": "ncc build src/index.js --license LICENCE",
     "format": "prettier --write src/*.js",
     "format-check": "prettier --check src/*.js",
     "test": "jest"
