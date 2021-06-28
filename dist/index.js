@@ -6289,7 +6289,7 @@ async function run() {
                 "This action can only be invoked in `pull_request` events. Otherwise the pull request can't be inferred."
             );
         }
-        console.log(`The event payload: ${contextPullRequest}`);
+        console.log(`The event payload: ${JSON.stringify(contextPullRequest, undefined, 2)}`);
 
     } catch (error) {
         core.setFailed(error.message);
