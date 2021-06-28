@@ -1,0 +1,17 @@
+name: 'Release Notes'
+author: 'Richard Case'
+description: 'Release-notes section like the Kubernetes Prow plugin'
+inputs: 
+  GITHUB_TOKEN:
+    description: 'The GITHUB_TOKEN secret'
+    required: true
+  github_api_url:
+    description: 'URI to the API of your Github Server, only necessary for Github Enterprise customers'
+    required: false
+    default: 'api.github.com'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.GITHUB_TOKEN }}
+    - ${{ inputs.github_api_url }}
