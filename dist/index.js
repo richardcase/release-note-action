@@ -6125,6 +6125,32 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 475:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const github = __nccwpck_require__(438);
+const core = __nccwpck_require__(186);
+
+module.exports = async function run() {
+    try {
+        //const token  = core.getInput('repo-token');
+        //const client = new github.GitHub(process.env.GITHUB_TOKEN)
+        const contextPullRequest = github.context.payload.pull_request;
+        if (!contextPullRequest) {
+            throw new Error(
+                "This action can only be invoked in `pull_request` events. Otherwise the pull request can't be inferred."
+            );
+        }
+        console.log(`The event payload: ${JSON.stringify(contextPullRequest, undefined, 2)}`);
+        console.log(`The context: ${JSON.stringify(github.context, undefined, 2)}`);
+
+    } catch (error) {
+        core.setFailed(error.message);
+    }
+};
+
+/***/ }),
+
 /***/ 877:
 /***/ ((module) => {
 
@@ -6276,25 +6302,7 @@ module.exports = require("zlib");;
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const github = __nccwpck_require__(438);
-const core = __nccwpck_require__(186);
-
-async function run() {
-    try {
-        //const token  = core.getInput('repo-token');
-        //const client = new github.GitHub(process.env.GITHUB_TOKEN)
-        const contextPullRequest = github.context.payload.pull_request;
-        if (!contextPullRequest) {
-            throw new Error(
-                "This action can only be invoked in `pull_request` events. Otherwise the pull request can't be inferred."
-            );
-        }
-        console.log(`The event payload: ${JSON.stringify(contextPullRequest, undefined, 2)}`);
-
-    } catch (error) {
-        core.setFailed(error.message);
-    }
-};
+const run = __nccwpck_require__(475);
 
 run().catch(console.error);
 })();
