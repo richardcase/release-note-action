@@ -21,7 +21,7 @@ type PullRequest struct {
 	Draft        bool      `json:"draft"`
 	HtmlURL      string    `json:"html_url"`
 	ID           int       `json:"id"`
-	Labels       []string  `json:"labels,omitempty"`
-	Number       int       `json:"number"`
-	Title        string    `json:"title"`
+	//Labels       []string  `json:"labels,omitempty"`
+	Number int    `json:"number"`
+	Title  string `json:"title"`
 }
